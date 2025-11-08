@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembayaran QRIS di Kredivo - Activity Diagram & Story</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f7fa;
+        margin: 0;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px 30px;
+      }
+
+      header.blog-header {
+        background: linear-gradient(135deg, #1a73e8, #4285f4);
+        color: white;
+        padding: 40px 20px;
+        border-radius: 0 0 20px 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .blog-title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .blog-meta {
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+
+      .blog-content {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 40px;
+      }
+
+      img {
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin-bottom: 25px;
+      }
+
+      h2 {
+        color: #1a73e8;
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+
+      p {
+        text-align: justify;
+        line-height: 1.7;
+      }
+
+      ul {
+        line-height: 1.8;
+      }
+
+      /* Section fitur / diagram */
+      .fiture-section {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 40px;
+      }
+
+      .fiture-section h2 {
+        text-align: center;
+        color: #1a73e8;
+        margin-bottom: 25px;
+      }
+
+      .fiture-section img {
+        display: block;
+        max-width: 700px;
+        margin: 0 auto 20px;
+        border-radius: 10px;
+      }
+
+      .diagram-steps {
+        max-width: 650px;
+        margin: 0 auto;
+        text-align: left;
+        list-style: none;
+        padding: 0;
+      }
+
+      .diagram-steps li {
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .diagram-steps i {
+        color: #1a73e8;
+        font-size: 1.1rem;
+      }
+
+      /* Comment Section */
+      .comment-section {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .comment-section h2 {
+        color: #1a73e8;
+        margin-bottom: 20px;
+      }
+
+      .comment {
+        border-bottom: 1px solid #eaeaea;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+      }
+
+      .comment:last-child {
+        border-bottom: none;
+      }
+
+      .comment strong {
+        color: #1a73e8;
+      }
+
+      .comment-form input,
+      .comment-form textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+      }
+
+      .comment-form button {
+        background: #1a73e8;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .comment-form button:hover {
+        background: #0d62d9;
+      }
+
+      footer {
+        text-align: center;
+        padding: 30px 0;
+        color: #666;
+        font-size: 0.9rem;
+        margin-top: 40px;
+        border-top: 1px solid #eaeaea;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 15px;
+        }
+
+        .blog-title {
+          font-size: 1.7rem;
+        }
+
+        img {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="blog-header">
+        <h1 class="blog-title">Activity Diagram - Pembayaran QRIS di Kredivo</h1>
+        <div class="blog-meta">
+          <p>
+            <i class="far fa-calendar"></i> 9 November 2025 &nbsp; | &nbsp;
+            <i class="far fa-user"></i> Andre Cahya
+          </p>
+        </div>
+      </header>
+
+      <div class="blog-content">
+        <img src="./images/gambar1.png" alt="Use Case Diagram Kredivo" />
+
+        <h2>🧩 Story Telling: Proses Pembayaran Kredivo via QRIS</h2>
+        <p>
+          Dalam era digital yang serba cepat, metode pembayaran non-tunai telah menjadi pilihan utama.
+          Aplikasi <strong>Kredivo</strong> menghadirkan fitur pembayaran <strong>QRIS</strong> untuk
+          memudahkan pengguna dalam bertransaksi di berbagai merchant tanpa perlu membawa uang tunai.
+          Prosesnya aman, cepat, dan dapat dilakukan hanya dengan beberapa langkah melalui aplikasi Kredivo.
+        </p>
+
+        <p>
+          Proses dimulai saat pengguna melakukan pembelian di merchant. Pengguna cukup meminta merchant
+          menampilkan <strong>kode QRIS</strong> yang berisi detail transaksi. Selanjutnya, pengguna membuka
+          aplikasi Kredivo, memilih menu <em>Bayar dengan QRIS</em>, dan melakukan pemindaian kode QR tersebut.
+          Aplikasi akan menampilkan detail pembayaran dan pilihan tenor cicilan.
+        </p>
+
+        <p>
+          Setelah pengguna memilih metode pembayaran dan mengonfirmasi transaksi, sistem Kredivo akan memproses
+          otorisasi pembayaran. Jika berhasil, pengguna menerima notifikasi bahwa transaksi telah selesai dan
+          bukti pembayaran otomatis tersimpan di riwayat transaksi.
+        </p>
+      </div>
+
+      <!-- Section Activity Diagram -->
+      <section class="fiture-section">
+        <h2><i class="fas fa-qrcode"></i> Activity Diagram Pembayaran QRIS</h2>
+
+        <img src="diagram-qris.png" alt="Activity Diagram QRIS Kredivo" />
+
+        <p>
+          Diagram berikut menunjukkan alur aktivitas pembayaran QRIS di aplikasi Kredivo, mulai dari pemindaian
+          kode QR hingga konfirmasi transaksi berhasil. Diagram ini membantu memahami hubungan antara pengguna,
+          aplikasi, dan sistem QRIS secara visual.
+        </p>
+
+        <ul class="diagram-steps">
+          <li><i class="fas fa-shopping-cart"></i> User memulai transaksi di merchant.</li>
+          <li><i class="fas fa-qrcode"></i> Merchant menampilkan kode QRIS.</li>
+          <li><i class="fas fa-mobile-alt"></i> User membuka aplikasi Kredivo dan memilih menu "Bayar dengan QRIS".</li>
+          <li><i class="fas fa-camera"></i> User memindai kode QR.</li>
+          <li><i class="fas fa-database"></i> Aplikasi mengirim data QRIS ke sistem Kredivo untuk verifikasi.</li>
+          <li><i class="fas fa-check-circle"></i> Sistem memverifikasi data dan menampilkan detail transaksi.</li>
+          <li><i class="fas fa-lock"></i> User memasukkan PIN untuk konfirmasi pembayaran.</li>
+          <li><i class="fas fa-receipt"></i> Sistem memproses dan menampilkan notifikasi transaksi sukses.</li>
+        </ul>
+      </section>
+
+      <!-- Comment Section -->
+      <section class="comment-section">
+        <h2><i class="fas fa-comments"></i> Kolom Komentar</h2>
+
+        <div class="comments-list">
+          <div class="comment">
+            <strong>Andi:</strong>
+            <p>Penjelasan diagramnya sangat jelas, membantu saya memahami alur QRIS!</p>
+          </div>
+          <div class="comment">
+            <strong>Sinta:</strong>
+            <p>Keren banget tampilannya, cocok untuk laporan tugas kuliah.</p>
+          </div>
+        </div>
+
+        <form class="comment-form">
+          <input type="text" placeholder="Nama kamu" required />
+          <textarea rows="4" placeholder="Tulis komentar kamu..." required></textarea>
+          <button type="submit"><i class="fas fa-paper-plane"></i> Kirim Komentar</button>
+        </form>
+      </section>
+
+      <footer>
+        <p>&copy; 2025 Andre Cahya — Semua hak cipta dilindungi.</p>
+      </footer>
+    </div>
+
+    <script>
+      // Simulasi kirim komentar tanpa backend
+      const form = document.querySelector(".comment-form");
+      const list = document.querySelector(".comments-list");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = form.querySelector("input").value.trim();
+        const text = form.querySelector("textarea").value.trim();
+
+        if (name && text) {
+          const comment = document.createElement("div");
+          comment.classList.add("comment");
+          comment.innerHTML = `<strong>${name}:</strong><p>${text}</p>`;
+          list.appendChild(comment);
+
+          form.reset();
+          alert("Komentar berhasil dikirim!");
+        }
+      });
+    </script>
+  </body>
+</html>
