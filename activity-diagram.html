@@ -37,12 +37,10 @@
         margin-bottom: 10px;
       }
 
-      /* ✅ Bagian ini diperbaiki */
       .blog-meta {
         font-size: 0.9rem;
         opacity: 0.9;
         margin-top: 15px;
-
         display: flex;
         justify-content: center;
         align-items: center;
@@ -170,13 +168,48 @@
         background: #0d62d9;
       }
 
+      /* ✅ Footer baru (gaya Kredivo) */
       footer {
+        background: #1a73e8;
+        color: white;
+        padding: 40px 20px;
         text-align: center;
-        padding: 30px 0;
-        color: #666;
-        font-size: 0.9rem;
-        margin-top: 40px;
-        border-top: 1px solid #eaeaea;
+        margin-top: 60px;
+        border-radius: 20px 20px 0 0;
+      }
+
+      .footer-content h3 {
+        margin-bottom: 10px;
+        font-size: 1.4rem;
+      }
+
+      .footer-content p {
+        margin: 5px 0 20px;
+        font-size: 0.95rem;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+        margin-bottom: 20px;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .footer-links a:hover {
+        text-decoration: underline;
+      }
+
+      .copyright p {
+        font-size: 0.85rem;
+        line-height: 1.6;
+        opacity: 0.9;
       }
 
       @media (max-width: 768px) {
@@ -191,6 +224,11 @@
         img {
           max-width: 100%;
         }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 10px;
+        }
       }
     </style>
   </head>
@@ -200,10 +238,7 @@
       <header class="blog-header">
         <h1 class="blog-title">Activity Diagram - Pembayaran QRIS di Kredivo</h1>
         <div class="blog-meta">
-          <span
-            ><i class="far fa-calendar"></i> Dipublikasikan: 2 November
-            2025</span
-          >
+          <span><i class="far fa-calendar"></i> Dipublikasikan: 2 November 2025</span>
           <span><i class="far fa-clock"></i> Waktu baca: 5 menit</span>
           <span><i class="far fa-user"></i> Penulis: Andre Cahya</span>
         </div>
@@ -217,20 +252,19 @@
           Dalam era digital yang serba cepat, metode pembayaran non-tunai telah menjadi pilihan utama.
           Aplikasi <strong>Kredivo</strong> menghadirkan fitur pembayaran <strong>QRIS</strong> untuk
           memudahkan pengguna dalam bertransaksi di berbagai merchant tanpa perlu membawa uang tunai.
-          Prosesnya aman, cepat, dan dapat dilakukan hanya dengan beberapa langkah melalui aplikasi Kredivo.
         </p>
 
         <p>
           Proses dimulai saat pengguna melakukan pembelian di merchant. Pengguna cukup meminta merchant
-          menampilkan <strong>kode QRIS</strong> yang berisi detail transaksi. Selanjutnya, pengguna membuka
-          aplikasi Kredivo, memilih menu <em>Bayar dengan QRIS</em>, dan melakukan pemindaian kode QR tersebut.
-          Aplikasi akan menampilkan detail pembayaran dan pilihan tenor cicilan.
+          menampilkan <strong>kode QRIS</strong> yang berisi detail transaksi, lalu membuka aplikasi Kredivo
+          dan memilih menu <em>Bayar dengan QRIS</em>. Setelah memindai QR, aplikasi menampilkan detail
+          pembayaran serta pilihan tenor cicilan.
         </p>
 
         <p>
-          Setelah pengguna memilih metode pembayaran dan mengonfirmasi transaksi, sistem Kredivo akan memproses
-          otorisasi pembayaran. Jika berhasil, pengguna menerima notifikasi bahwa transaksi telah selesai dan
-          bukti pembayaran otomatis tersimpan di riwayat transaksi.
+          Setelah pengguna mengonfirmasi dan memasukkan PIN, sistem Kredivo memproses otorisasi pembayaran.
+          Jika berhasil, notifikasi transaksi sukses muncul dan bukti pembayaran otomatis tersimpan di
+          riwayat transaksi.
         </p>
       </div>
 
@@ -241,8 +275,7 @@
 
         <p>
           Diagram berikut menunjukkan alur aktivitas pembayaran QRIS di aplikasi Kredivo, mulai dari pemindaian
-          kode QR hingga konfirmasi transaksi berhasil. Diagram ini membantu memahami hubungan antara pengguna,
-          aplikasi, dan sistem QRIS secara visual.
+          kode QR hingga konfirmasi transaksi berhasil.
         </p>
 
         <ul class="diagram-steps">
@@ -250,10 +283,10 @@
           <li><i class="fas fa-qrcode"></i> Merchant menampilkan kode QRIS.</li>
           <li><i class="fas fa-mobile-alt"></i> User membuka aplikasi Kredivo dan memilih menu "Bayar dengan QRIS".</li>
           <li><i class="fas fa-camera"></i> User memindai kode QR.</li>
-          <li><i class="fas fa-database"></i> Aplikasi mengirim data QRIS ke sistem Kredivo untuk verifikasi.</li>
-          <li><i class="fas fa-check-circle"></i> Sistem memverifikasi data dan menampilkan detail transaksi.</li>
+          <li><i class="fas fa-database"></i> Aplikasi mengirim data QRIS ke sistem Kredivo.</li>
+          <li><i class="fas fa-check-circle"></i> Sistem memverifikasi dan menampilkan detail transaksi.</li>
           <li><i class="fas fa-lock"></i> User memasukkan PIN untuk konfirmasi pembayaran.</li>
-          <li><i class="fas fa-receipt"></i> Sistem memproses dan menampilkan notifikasi transaksi sukses.</li>
+          <li><i class="fas fa-receipt"></i> Sistem menampilkan notifikasi transaksi sukses.</li>
         </ul>
       </section>
 
@@ -277,27 +310,14 @@
           <button type="submit"><i class="fas fa-paper-plane"></i> Kirim Komentar</button>
         </form>
       </section>
-
-      <footer>
-        <p>
-          &copy; 2025 Review Aplikasi [17231002 | Andre Cahya]. Semua hak cipta
-          dilindungi.
-        </p>
-        <p>
-          Artikel ini dibuat untuk tujuan edukasi. Gambar dan merek dagang
-          adalah hak milik pemilik masing-masing. <br />
-          Sebagai tugas individu, Mata Kuliah Rekayasa Perangkat Lunak.
-        </p>
-      </footer>
     </div>
+
+    <!-- ✅ Footer bergaya Kredivo -->
     <footer>
       <div class="container">
         <div class="footer-content">
           <h3>Kredivo - Solusi Keuangan Digital</h3>
-          <p>
-            Aplikasi paylater terpercaya dengan lebih dari 10 juta pengguna di
-            Indonesia
-          </p>
+          <p>Aplikasi paylater terpercaya dengan lebih dari 10 juta pengguna di Indonesia.</p>
           <div class="footer-links">
             <a href="#">Syarat & Ketentuan</a>
             <a href="#">Kebijakan Privasi</a>
@@ -305,19 +325,16 @@
             <a href="#">Tentang Kami</a>
           </div>
           <div class="copyright">
+            <p>&copy; 2025 Review Aplikasi [17231002 | Andre Cahya]. Semua hak cipta dilindungi.</p>
             <p>
-              &copy; 2025 Review Aplikasi [17231002 | Andre Cahya]. Semua hak
-              cipta dilindungi.
-            </p>
-            <p>
-              Artikel ini dibuat untuk tujuan edukasi. Gambar dan merek dagang
-              adalah hak milik pemilik masing-masing. <br />
+              Artikel ini dibuat untuk tujuan edukasi. Gambar dan merek dagang adalah hak milik pemilik masing-masing. <br />
               Sebagai tugas individu, Mata Kuliah Rekayasa Perangkat Lunak.
             </p>
           </div>
         </div>
       </div>
     </footer>
+
     <script>
       const form = document.querySelector(".comment-form");
       const list = document.querySelector(".comments-list");
@@ -332,7 +349,6 @@
           comment.classList.add("comment");
           comment.innerHTML = `<strong>${name}:</strong><p>${text}</p>`;
           list.appendChild(comment);
-
           form.reset();
           alert("Komentar berhasil dikirim!");
         }
