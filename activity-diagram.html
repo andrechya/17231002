@@ -3,128 +3,171 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cara Pakai QRIS di Kredivo - Tutorial Lengkap</title>
+    <title>Pembayaran QRIS di Kredivo - Activity Diagram & Story</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <style>
-      /* --- semua CSS dari file kamu tetap --- */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-
       body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         background-color: #f5f7fa;
+        margin: 0;
         color: #333;
-        line-height: 1.6;
       }
 
       .container {
-        max-width: 800px;
+        max-width: 1000px;
         margin: 0 auto;
-        padding: 20px;
+        padding: 20px 30px;
       }
 
-      .blog-header {
+      header.blog-header {
         background: linear-gradient(135deg, #1a73e8, #4285f4);
         color: white;
         padding: 40px 20px;
         border-radius: 0 0 20px 20px;
         margin-bottom: 30px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-
-      .blog-title {
-        font-size: 2.2rem;
-        margin-bottom: 10px;
         text-align: center;
       }
 
+      .blog-title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      /* ✅ Bagian ini diperbaiki */
       .blog-meta {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin-top: 15px;
         font-size: 0.9rem;
         opacity: 0.9;
+        margin-top: 15px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
       }
 
-      /* Tambahan CSS untuk komentar */
-      .comment-section {
+      .blog-content {
         background: white;
         border-radius: 12px;
-        padding: 25px;
-        margin-top: 40px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 40px;
       }
 
-      .comment-section h3 {
+      img {
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin-bottom: 25px;
+      }
+
+      h2 {
         color: #1a73e8;
+        margin-top: 30px;
         margin-bottom: 15px;
       }
 
-      .comment-form {
+      p {
+        text-align: justify;
+        line-height: 1.7;
+      }
+
+      ul {
+        line-height: 1.8;
+      }
+
+      .fiture-section {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 40px;
+      }
+
+      .fiture-section h2 {
+        text-align: center;
+        color: #1a73e8;
+        margin-bottom: 25px;
+      }
+
+      .fiture-section img {
+        display: block;
+        max-width: 700px;
+        margin: 0 auto 20px;
+        border-radius: 10px;
+      }
+
+      .diagram-steps {
+        max-width: 650px;
+        margin: 0 auto;
+        text-align: left;
+        list-style: none;
+        padding: 0;
+      }
+
+      .diagram-steps li {
+        margin: 10px 0;
         display: flex;
-        flex-direction: column;
-        gap: 15px;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .diagram-steps i {
+        color: #1a73e8;
+        font-size: 1.1rem;
+      }
+
+      .comment-section {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .comment-section h2 {
+        color: #1a73e8;
+        margin-bottom: 20px;
+      }
+
+      .comment {
+        border-bottom: 1px solid #eaeaea;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+      }
+
+      .comment:last-child {
+        border-bottom: none;
+      }
+
+      .comment strong {
+        color: #1a73e8;
       }
 
       .comment-form input,
       .comment-form textarea {
         width: 100%;
         padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
         font-size: 1rem;
-        transition: border-color 0.3s;
-      }
-
-      .comment-form input:focus,
-      .comment-form textarea:focus {
-        border-color: #1a73e8;
-        outline: none;
       }
 
       .comment-form button {
         background: #1a73e8;
         color: white;
-        padding: 12px;
+        padding: 12px 25px;
         border: none;
-        border-radius: 8px;
-        font-weight: bold;
+        border-radius: 6px;
         cursor: pointer;
-        transition: background 0.3s;
+        transition: 0.3s;
       }
 
       .comment-form button:hover {
         background: #0d62d9;
-      }
-
-      .comment-list {
-        margin-top: 30px;
-      }
-
-      .comment {
-        background: #f8f9fa;
-        border-left: 4px solid #1a73e8;
-        padding: 15px;
-        border-radius: 8px;
-        margin-bottom: 15px;
-      }
-
-      .comment .author {
-        font-weight: bold;
-        color: #1a73e8;
-      }
-
-      .comment .date {
-        font-size: 0.8rem;
-        color: #777;
-        margin-bottom: 5px;
       }
 
       footer {
@@ -132,131 +175,133 @@
         padding: 30px 0;
         color: #666;
         font-size: 0.9rem;
-        margin-top: 50px;
+        margin-top: 40px;
         border-top: 1px solid #eaeaea;
       }
 
       @media (max-width: 768px) {
-        .blog-meta {
-          flex-direction: column;
-          align-items: center;
-          gap: 8px;
+        .container {
+          padding: 15px;
+        }
+
+        .blog-title {
+          font-size: 1.7rem;
+        }
+
+        img {
+          max-width: 100%;
         }
       }
     </style>
   </head>
+
   <body>
     <div class="container">
-      <!-- Header -->
       <header class="blog-header">
-        <h1 class="blog-title">Cara Pakai QRIS di Kredivo - Tutorial Lengkap</h1>
+        <h1 class="blog-title">Activity Diagram - Pembayaran QRIS di Kredivo</h1>
         <div class="blog-meta">
-          <span><i class="far fa-calendar"></i> 2 November 2025</span>
-          <span><i class="far fa-clock"></i> 7 menit baca</span>
-          <span><i class="far fa-user"></i> Andre Cahya</span>
+          <span
+            ><i class="far fa-calendar"></i> Dipublikasikan: 2 November
+            2025</span
+          >
+          <span><i class="far fa-clock"></i> Waktu baca: 5 menit</span>
+          <span><i class="far fa-user"></i> Penulis: Andre Cahya</span>
         </div>
       </header>
 
-      <!-- Gambar Use Case -->
-      <img src="gambar1.png" alt="Use Case Diagram Kredivo" style="width:100%; border-radius:12px; margin-bottom:25px;">
-
-      <!-- Storytelling Section -->
       <div class="blog-content">
-        <h2>📝 Urutan Aktivitas Pembayaran QRIS di Kredivo</h2>
+        <img src="./images/gambar2.png" alt="Use Case Diagram Kredivo" />
+
+        <h2>🧩 Story Telling: Proses Pembayaran Kredivo via QRIS</h2>
         <p>
-          Dalam sistem pembayaran digital modern, Kredivo menghadirkan fitur QRIS yang memudahkan pengguna bertransaksi dengan cepat dan aman. Berikut ini merupakan alur aktivitas yang menggambarkan interaksi antara pengguna, aplikasi Kredivo, dan sistem QRIS.
+          Dalam era digital yang serba cepat, metode pembayaran non-tunai telah menjadi pilihan utama.
+          Aplikasi <strong>Kredivo</strong> menghadirkan fitur pembayaran <strong>QRIS</strong> untuk
+          memudahkan pengguna dalam bertransaksi di berbagai merchant tanpa perlu membawa uang tunai.
+          Prosesnya aman, cepat, dan dapat dilakukan hanya dengan beberapa langkah melalui aplikasi Kredivo.
         </p>
 
-        <div class="step-card">
-          <h3><span class="step-number">1</span> User Memulai Transaksi</h3>
-          <p>
-            Pengguna melakukan pembelian di merchant dan meminta untuk membayar menggunakan QRIS.
-          </p>
-        </div>
+        <p>
+          Proses dimulai saat pengguna melakukan pembelian di merchant. Pengguna cukup meminta merchant
+          menampilkan <strong>kode QRIS</strong> yang berisi detail transaksi. Selanjutnya, pengguna membuka
+          aplikasi Kredivo, memilih menu <em>Bayar dengan QRIS</em>, dan melakukan pemindaian kode QR tersebut.
+          Aplikasi akan menampilkan detail pembayaran dan pilihan tenor cicilan.
+        </p>
 
-        <div class="step-card">
-          <h3><span class="step-number">2</span> Merchant Menampilkan Kode QR</h3>
-          <p>
-            Merchant menampilkan kode QRIS di layar kasir atau struk pembayaran untuk dipindai oleh pengguna.
-          </p>
-        </div>
-
-        <div class="step-card">
-          <h3><span class="step-number">3</span> User Membuka Aplikasi Kredivo</h3>
-          <p>
-            Pengguna membuka aplikasi Kredivo dan memilih fitur <strong>Bayar via QRIS</strong>.
-          </p>
-        </div>
-
-        <div class="step-card">
-          <h3><span class="step-number">4</span> Scan dan Verifikasi</h3>
-          <p>
-            Kredivo memindai kode QR, lalu mengirim data transaksi ke sistem QRIS untuk diverifikasi.
-          </p>
-        </div>
-
-        <div class="step-card">
-          <h3><span class="step-number">5</span> Konfirmasi Pembayaran</h3>
-          <p>
-            Aplikasi menampilkan detail transaksi seperti nama merchant dan total pembayaran. Pengguna kemudian memilih tenor cicilan dan mengonfirmasi.
-          </p>
-        </div>
-
-        <div class="step-card">
-          <h3><span class="step-number">6</span> Transaksi Disetujui</h3>
-          <p>
-            Sistem Kredivo memproses otorisasi pembayaran, mengurangi limit pengguna, dan menampilkan notifikasi <strong>Pembayaran Berhasil</strong>.
-          </p>
-        </div>
-
-        <div class="conclusion-box">
-          <p>
-            Melalui proses yang cepat dan terintegrasi, Kredivo menjadikan pembayaran QRIS semakin mudah digunakan oleh siapa pun, kapan pun, dan di mana pun.
-          </p>
-        </div>
+        <p>
+          Setelah pengguna memilih metode pembayaran dan mengonfirmasi transaksi, sistem Kredivo akan memproses
+          otorisasi pembayaran. Jika berhasil, pengguna menerima notifikasi bahwa transaksi telah selesai dan
+          bukti pembayaran otomatis tersimpan di riwayat transaksi.
+        </p>
       </div>
 
-      <!-- Komentar -->
-      <div class="comment-section">
-        <h3><i class="far fa-comments"></i> Kolom Komentar</h3>
-        <form class="comment-form" onsubmit="addComment(event)">
-          <input type="text" id="name" placeholder="Nama kamu..." required />
-          <textarea id="comment" rows="4" placeholder="Tulis komentar kamu..." required></textarea>
-          <button type="submit">Kirim Komentar</button>
+      <section class="fiture-section">
+        <h2><i class="fas fa-qrcode"></i> Activity Diagram Pembayaran QRIS</h2>
+
+        <img src="./images/gambar1.png" alt="Activity Diagram QRIS Kredivo" />
+
+        <p>
+          Diagram berikut menunjukkan alur aktivitas pembayaran QRIS di aplikasi Kredivo, mulai dari pemindaian
+          kode QR hingga konfirmasi transaksi berhasil. Diagram ini membantu memahami hubungan antara pengguna,
+          aplikasi, dan sistem QRIS secara visual.
+        </p>
+
+        <ul class="diagram-steps">
+          <li><i class="fas fa-shopping-cart"></i> User memulai transaksi di merchant.</li>
+          <li><i class="fas fa-qrcode"></i> Merchant menampilkan kode QRIS.</li>
+          <li><i class="fas fa-mobile-alt"></i> User membuka aplikasi Kredivo dan memilih menu "Bayar dengan QRIS".</li>
+          <li><i class="fas fa-camera"></i> User memindai kode QR.</li>
+          <li><i class="fas fa-database"></i> Aplikasi mengirim data QRIS ke sistem Kredivo untuk verifikasi.</li>
+          <li><i class="fas fa-check-circle"></i> Sistem memverifikasi data dan menampilkan detail transaksi.</li>
+          <li><i class="fas fa-lock"></i> User memasukkan PIN untuk konfirmasi pembayaran.</li>
+          <li><i class="fas fa-receipt"></i> Sistem memproses dan menampilkan notifikasi transaksi sukses.</li>
+        </ul>
+      </section>
+
+      <section class="comment-section">
+        <h2><i class="fas fa-comments"></i> Kolom Komentar</h2>
+
+        <div class="comments-list">
+          <div class="comment">
+            <strong>Andi:</strong>
+            <p>Penjelasan diagramnya sangat jelas, membantu saya memahami alur QRIS!</p>
+          </div>
+          <div class="comment">
+            <strong>Sinta:</strong>
+            <p>Keren banget tampilannya, cocok untuk laporan tugas kuliah.</p>
+          </div>
+        </div>
+
+        <form class="comment-form">
+          <input type="text" placeholder="Nama kamu" required />
+          <textarea rows="4" placeholder="Tulis komentar kamu..." required></textarea>
+          <button type="submit"><i class="fas fa-paper-plane"></i> Kirim Komentar</button>
         </form>
+      </section>
 
-        <div class="comment-list" id="commentList"></div>
-      </div>
-
-      <!-- Footer -->
       <footer>
-        <p>&copy; 2025 Review Aplikasi [17231002 | Andre Cahya]. Semua hak cipta dilindungi.</p>
+        <p>&copy; 2025 Andre Cahya — Semua hak cipta dilindungi.</p>
       </footer>
     </div>
 
     <script>
-      // Tambah komentar
-      function addComment(event) {
-        event.preventDefault();
-        const name = document.getElementById("name").value;
-        const comment = document.getElementById("comment").value;
-        const commentList = document.getElementById("commentList");
+      const form = document.querySelector(".comment-form");
+      const list = document.querySelector(".comments-list");
 
-        const commentDiv = document.createElement("div");
-        commentDiv.classList.add("comment");
-        const date = new Date().toLocaleString("id-ID");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = form.querySelector("input").value.trim();
+        const text = form.querySelector("textarea").value.trim();
 
-        commentDiv.innerHTML = `
-          <div class="author">${name}</div>
-          <div class="date">${date}</div>
-          <div class="text">${comment}</div>
-        `;
+        if (name && text) {
+          const comment = document.createElement("div");
+          comment.classList.add("comment");
+          comment.innerHTML = `<strong>${name}:</strong><p>${text}</p>`;
+          list.appendChild(comment);
 
-        commentList.prepend(commentDiv);
-
-        document.getElementById("name").value = "";
-        document.getElementById("comment").value = "";
-      }
+          form.reset();
+          alert("Komentar berhasil dikirim!");
+        }
+      });
     </script>
   </body>
 </html>
